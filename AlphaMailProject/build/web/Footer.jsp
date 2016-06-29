@@ -8,7 +8,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <footer>
-<p>&copy;Copyright 2016, CS4310 Inc.
+<p>&copy;Copyright 2016, CS4310 Inc.123
 All Rights Reserved
 </p>
 
