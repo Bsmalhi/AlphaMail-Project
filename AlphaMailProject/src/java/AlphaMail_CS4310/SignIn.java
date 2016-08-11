@@ -40,7 +40,7 @@ public class SignIn extends HttpServlet {
         User user = UserDB.find(userName);
         if (user != null && user.getPassword().equals(password)){
             System.out.println("Sign up successfully");
-            url = "/Chat";
+            url = "/Chat.jsp";
             session.setAttribute("user", user);
         }else{
             System.err.println("Username password did not match");

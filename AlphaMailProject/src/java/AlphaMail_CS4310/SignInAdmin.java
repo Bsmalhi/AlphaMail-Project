@@ -1,17 +1,11 @@
-package AlphaMail_CS4310;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package AlphaMail_CS4310;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,10 +15,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Baljot
+ * @author baljotmalhi
  */
-@WebServlet(urlPatterns = {"/SignUp"})
-public class SignUp extends HttpServlet {
+@WebServlet(name = "SignInAdmin", urlPatterns = {"/SignInAdmin"})
+public class SignInAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,29 +30,21 @@ public class SignUp extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
-        String url = "/index.jsp";
+            throws ServletException, IOException {
+        String url = "/Admin.jsp";
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        String year = request.getParameter("year");
-        String month = request.getParameter("month");
-        String day = request.getParameter("day");
-                
-        User user = UserDB.find(username);
-        if (user == null || username.equals("EmailListGuest")){
-            url = "/Welcome.jsp";            
-            User newUser = new User(username, password, email, firstname, lastname, year, month, day);
-            UserDB.add(newUser);
+        String user = "Admin", pass = "Admin123";
+        if (username.equals(user) && password.equals(pass)){
+            url = "/AdminMain.jsp";
         }else{
-            url = "/Register.jsp";
-            System.err.println("User existed!!!");
-            request.setAttribute("message","User existed!");
+            System.err.println("Username password did not match");
+            request.setAttribute("message", "Please enter correct Username and Password");
+            url = "/Admin.jsp";
         }
         this.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -72,11 +58,7 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -90,11 +72,7 @@ public class SignUp extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

@@ -10,7 +10,7 @@ package AlphaMail_CS4310;
 
 /**
  *
- * @author Will
+ * @author Baljot
  */
 public class Message {
     private int id, number;

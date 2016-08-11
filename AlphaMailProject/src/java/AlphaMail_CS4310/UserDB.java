@@ -13,7 +13,7 @@ import javax.mail.*;
 
 /**
  *
- * @author Will
+ * @author Baljot
  */
 public class UserDB {
     
@@ -22,7 +22,7 @@ public class UserDB {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
-        String query = "INSERT INTO cs3520.user (username, password, email, firstname, lastname, dob) "
+        String query = "INSERT INTO CS3520.CS3520 (username, password, email, firstname, lastname, dob) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         try{
             ps = connection.prepareStatement(query);
@@ -49,7 +49,7 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
             
             PreparedStatement ps = null;
-            String query = "INSERT INTO cs3520.user (username, password, email, firstname, lastname, year, month, day) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO CS3520.CS3520 (username, password, email, firstname, lastname) " + "VALUES (?, ?, ?, ?, ?)";
             
             ps = connection.prepareStatement(query);
             ps.setString(1, newUser.getUsername());
@@ -57,9 +57,6 @@ public class UserDB {
             ps.setString(3, newUser.getEmail());
             ps.setString(4, newUser.getFirstname());
             ps.setString(5, newUser.getLastname());
-            ps.setString(6, newUser.getYear());
-            ps.setString(7, newUser.getMonth());
-            ps.setString(8, newUser.getDay());
             ps.executeUpdate();
         } catch (Exception e){
             System.out.println(e);
@@ -76,7 +73,7 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
         
             PreparedStatement ps = null;
-            String query = "UPDATE cs3520.user SET "
+            String query = "UPDATE CS3520.CS3520 SET "
                     + "password=?, "
                     + "email=?, "
                     + "firstname=?, "
@@ -111,7 +108,7 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
         
             PreparedStatement ps = null;
-            String query = "SELECT * FROM cs3520.user WHERE username = ?";
+            String query = "SELECT * FROM CS3520.CS3520 WHERE username = ?";
             ps = connection.prepareStatement(query);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
@@ -145,7 +142,7 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
         
             PreparedStatement ps = null;
-            String query = "SELECT email FROM cs3520.user";
+            String query = "SELECT email FROM CS3520";
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
