@@ -40,14 +40,11 @@ public class SignUp extends HttpServlet {
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
-        String year = request.getParameter("year");
-        String month = request.getParameter("month");
-        String day = request.getParameter("day");
                 
         User user = UserDB.find(username);
         if (user == null || username.equals("EmailListGuest")){
             url = "/Welcome.jsp";            
-            User newUser = new User(username, password, email, firstname, lastname, year, month, day);
+            User newUser = new User(username, password, email, firstname, lastname);
             UserDB.add(newUser);
         }else{
             url = "/Register.jsp";
