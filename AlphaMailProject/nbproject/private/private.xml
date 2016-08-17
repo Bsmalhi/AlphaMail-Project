@@ -3,16 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/Footer.jsp</file>
-            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/Register.jsp</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/WEB-INF/web.xml</file>
             <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/SignIn.java</file>
-            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/SignUp.java</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/index.html</file>
             <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/MyDatabase.java</file>
             <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/Welcome.jsp</file>
             <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/User.java</file>
-            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/UserDB.java</file>
-            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/DownloadApp.jsp</file>
             <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/Message.java</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/Chat.jsp</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/Footer.jsp</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/SignUp.java</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/UserDB.java</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/src/java/AlphaMail_CS4310/SignInAdmin.java</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/nbproject/build-impl.xml</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/DownloadApp.jsp</file>
+            <file>file:/Users/baljotmalhi/Desktop/Git%20Projects/AlphaMail-Project/AlphaMailProject/web/META-INF/context.xml</file>
         </group>
     </open-files>
 </project-private>

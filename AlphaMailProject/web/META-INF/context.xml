@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/AlphaMailProject">
-    <Resource name="jdbc/murach" auth="Container"
-        driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost:3306/murach?autoReconnection=true"
-        username="root" password="baljotmalhi1"
-        maxActive="100" maxIdle="30" maxWait="1000"
-        logAbandoned="true" removeAbandoned="true"
-        removeAbandonedTimeout="60" type="javax.sql.DataSource" 
-    />
+<Context antiJARLocking="true" path="/AlphaMailProject">
+   
 </Context>

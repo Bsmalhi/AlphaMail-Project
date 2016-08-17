@@ -88,9 +88,6 @@ public class UserDB {
             ps.setString(2, newUser.getEmail());
             ps.setString(3, newUser.getFirstname());
             ps.setString(4, newUser.getLastname());
-            ps.setString(5, newUser.getYear());
-            ps.setString(6, newUser.getMonth());
-            ps.setString(7, newUser.getDay());
             ps.setString(8, newUser.getUsername());
             ps.executeUpdate();
         } catch (Exception e){
@@ -118,10 +115,7 @@ public class UserDB {
                         rs.getString("password"),
                         rs.getString("email"),
                         rs.getString("firstname"),
-                        rs.getString("lastname"),
-                        rs.getString("year"),
-                        rs.getString("month"),
-                        rs.getString("day")
+                        rs.getString("lastname")
                 );
             }
         } catch (Exception e){

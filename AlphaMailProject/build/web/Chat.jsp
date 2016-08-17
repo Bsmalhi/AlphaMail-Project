@@ -159,21 +159,7 @@
                         <th style="width: 10em">Message</th>
                         <th style="width: 4em">Action</th>
                     </tr>
-                    <c:forEach items="${user.message}" var="m">
-                       <tr>
-                           <td style="font-weight: bold;"><c:out value="${m.number}"/></td>
-                           <td style="font-weight: bolder;"><c:out value="${m.fromuser}"/></td>
-                           <td><c:out value="${m.year}-${m.month}-${m.day} ${m.hour}:${m.minute}:${m.second}"/></td>
-                           <td style="font-weight: bold; font-style: italic;"><c:out value="${m.message}"/></td>
-                           <td>
-                                <form action="Chat" method="post">
-                                    <input type="hidden" name="action" value="DELETE">
-                                    <input type="hidden" name="id" value="${m.number}">
-                                    <input type="submit" value="Delete">
-                                </form>
-                           </td>
-                        </tr>
-                    </c:forEach>
+                   
                 </table>
             </div>
             <div class="footer">
