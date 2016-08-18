@@ -22,6 +22,8 @@ public class MyDatabase {
     private static String dbURL = "jdbc:mysql://localhost:3306/CS3520";
     private static String username = "root";
     private static String password = "Baljotmalhi1";
+
+
     private static Connection connection;
 
     public static Connection getConnection() {
@@ -32,41 +34,11 @@ public class MyDatabase {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(dbURL, username, password);
-            
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE SCHEMA IF NOT EXISTS CS3520;");
-            statement.executeUpdate(
-                    "CREATE TABLE IF NOT EXISTS `CS3520`.`message` ("+
-                    "`id` INT NOT NULL AUTO_INCREMENT,"+
-                    "`fromuser` VARCHAR(45) NOT NULL,"+
-                    "`touser` VARCHAR(45) NOT NULL,"+
-                    "`message` VARCHAR(10000) NOT NULL,"+
-                    "`year` VARCHAR(45) NOT NULL,"+
-                    "`month` VARCHAR(45) NOT NULL,"+
-                    "`day` VARCHAR(45) NOT NULL,"+
-                    "`hour` VARCHAR(45) NOT NULL,"+
-                    "`minute` VARCHAR(45) NOT NULL,"+
-                    "`second` VARCHAR(45) NOT NULL,"+
-                    "PRIMARY KEY (`id`),"+
-                    "UNIQUE INDEX `id_UNIQUE` (`id` ASC));"
-            );
-            /*statement.executeUpdate(
-                    "CREATE TABLE IF NOT EXISTS `CS3520`.`CS3520` ("+
-                    "`id` INT NOT NULL AUTO_INCREMENT,"+
-                    "`username` VARCHAR(45) NOT NULL,"+
-                    "`password` VARCHAR(45) NOT NULL,"+
-                    "`email` VARCHAR(45) NOT NULL,"+
-                    "`firstname` VARCHAR(45) NOT NULL,"+
-                    "`lastname` VARCHAR(45) NOT NULL,"+
-                    "PRIMARY KEY (`id`),"+
-                    "UNIQUE INDEX `id_UNIQUE` (`id` ASC));"
-            );*/
-        } catch(SQLException e){
+
+        } catch(Exception e){
             System.out.println(e);
             e.printStackTrace();;
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MyDatabase.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
     
     public static ResultSet Run(String sqlStatement){

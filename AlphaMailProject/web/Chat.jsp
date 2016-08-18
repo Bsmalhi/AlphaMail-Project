@@ -1,18 +1,18 @@
 <%-- 
-    Document   : Main_Will
-    Created on : May 22, 2016, 4:13:37 PM
-    Author     : Baljot
+    Document   : chat
+    Created on : Aug 14, 2016, 3:27:03 PM
+    Author     : Tracy
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AlphaChat</title>
+    <title>AlphaMail</title>
        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -20,79 +20,70 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         
     <style type="text/css">
-    .marginTop{
-        margin-top: 15px;
-        margin-bottom: 15px;
-        width: 100vh;
+
+    .navbar-brand{
+        font-size: 1.8em;
+    }
+    #topContainer{
+        
+        background-image:url("Include/Images/forest.jpeg");
+        width: 100%;
+        background-size: cover;
     }
     #topRow{
         margin-top: 100px;
         text-align: center;
-        width: 100vh;
     }
-    .footer{
-        margin-top: 7%;
+    #topRow h1{
+        font-size: 300%;
+    }
+    .marginTop{
+        margin-top: 30px;
+    }
+    .center
+    {
         text-align: center;
     }
-    .navbar-brand{
-        font-size: 1.8em;
-    }    
-    #topContainer{
-        background-image: url("Include/Images/valley.jpeg");
-        width: 100%;
-        height: 100vh;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+    .title{
+        margin-top: 100px;
+        font-size: 300%;
     }
-    #textArea{
-        width: 400px;
-        height: 200px;
+    #footer{
+        background-color: #B4D1F8;
+        margin-top: 50px;
+        width: auto;
     }
-    .w{
-        width: 100%;
-        border: solid black;
+    .marginBottom{
+        margin-bottom: 30px;
+    }
+    .appImage{
+        width: 250px;
     }
     .right{
-        margin-left: 500px;
+        margin-top: 5px;
     }
-    #background{
+    .up{
+        margin-top: -45px;
+    }
+    .centerTitle{
         
     }
-    .border{
-        width: 100%;
-        border: solid black .2em;
-        border-radius: 7.5em 5em;
+    #errorMessage{
+       margin-top: 30px;
+       margin-left: 400px;
+       
     }
-    #textArea{
-        width: 400px;
-        height: 100px;
+    .row a{
+        text-decoration: none;
+        color: #4C4C4C;
     }
-    .navbar-left{
-        margin: 0 0 10px 10px;
-    }
-    .input-group{
-        text-align: center;
-    }
-    #send{
-        margin-top: -10px;
-        
-    }
-    #container{
-        background-color: lightblue;
-    }
-    h3 a{
-        text-decoration: inherit;
-        color: grey;
-    }
-    #color{
-        background-color: #E6DFE9;
-        margin-top: -19px;
+    .col-md-4 marginTop a{
+        text-decoration: none;
     }
     </style>
-  </head>
-  <body id="background">
+
+</head>
+    <body>
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -102,78 +93,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         
-                    </button>
-                       <a class="navbar-brand">SnapMail</a> 
-                </div>
-                <div class="collapse navbar-collapse" >
+                       </button>
+                       <a class="navbar-brand">AlphaMail</a> 
+                 </div>
+                    <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="Chat.jsp">Home</a></li>
+                            <li><a href="Welcome.jsp">Home</a></li>
                             <li><a href="About.jsp">About</a></li>
                             <li><a href="DownloadApp.jsp">Download App</a></li>
-                            <li class="active"><a href="#UserMain">Home Page</a></li>
-                            <li class="right"><a href="Welcome.jsp">Sign Out</a></li>
                         </ul>                                                                
-                </div>
+                    </div>
             </div>
+        </div>
+       <div class="container contentContainer">
+         <div class="row center">
+            <h3 class="center title ">Sign in successfully. Put the chatting page here.</h1>
+         </div>
        </div>
-        <div class="container" id="topContainer" >
-            <div class="col-lg-6 col-lg-offset-3" id="topRow">
-                <h1 class="marginTop"><%@ include file="Header.jsp" %></h1>
-             
-                <h3> ${user.username}'s <a href ="EditUser.jsp" style="text-decoration: none; color: grey;"> Account Settings</a></h3>
-
-                
-                <br><br>
-
-                <div>
-                    <h2 id="send"><span id="send" class="glyphicon glyphicon-envelope"> SendMessage</span></h2>
-                    <form action="Chat" method="post">
-                        <input type="hidden" name="action" value="SEND">
-                        
-                        
-                            <label>To:</label>
-                           <input type="text" name="username" required class="form-control" ><br>
-
-                       
-                        
-                        <label>Message:</label><br>
-                       
-                        <textarea type="text" name="message" required class="form-control"></textarea><br>
-                        <input type="submit" value="Send"><p><i>${message}</i><p>
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <br>
-            
-        <div id="color" >
-            <h3 class="navbar-left">Inbox: ${ user.username}</h3>
-            <div>         
-                <table class="border" border="1" style="margin:0.5em; width:100%" >
-                    <tr>
-                        <th style="width: 3em"></th>
-                        <th style="width: 10em">From</th>
-                        <th style="width: 8em">Day-Time</th>
-                        <th style="width: 10em">Message</th>
-                        <th style="width: 4em">Action</th>
-                    </tr>
-                   
-                </table>
-            </div>
-            <div class="footer">
-            <%@ include file="Footer.jsp" %>
-            </div>
-        </div>
-            
-    </body>
+     </body>
 </html>
- <!--
-            <form action="Chat" method="post">
-                <input type="hidden" name="action" value="DELETE">
-                <label>Enter the number of message you want to delete:</label>
-                <input type=number name="id" required>
-                <input type="submit" value="Delete">
-            </form>
-            -->
+<%@ include file="Footer.jsp" %>
+>>>>>>> origin/master

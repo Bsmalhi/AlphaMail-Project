@@ -16,8 +16,15 @@ import java.util.Calendar;
  * @author Will
  */
 public class User implements Serializable{
+<<<<<<< HEAD
     private String username, password, email, firstname, lastname;
     private ArrayList<Message> message;
+||||||| merged common ancestors
+    private String username, password, email, firstname, lastname, year, month, day;
+    private ArrayList<Message> message;
+=======
+    private String username, password, email, firstname, lastname;
+>>>>>>> origin/master
     
     public User(String username, String password, String email, String firstname, String lastname) {
         this.username = username;
@@ -66,4 +73,33 @@ public class User implements Serializable{
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+=======
+
+>>>>>>> origin/master
 }

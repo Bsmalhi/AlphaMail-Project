@@ -3,7 +3,7 @@ package AlphaMail_CS4310;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.mail.*;
+//import javax.mail.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -49,7 +49,13 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
             
             PreparedStatement ps = null;
+<<<<<<< HEAD
             String query = "INSERT INTO CS3520.CS3520 (username, password, email, firstname, lastname) " + "VALUES (?, ?, ?, ?, ?)";
+||||||| merged common ancestors
+            String query = "INSERT INTO cs3520.user (username, password, email, firstname, lastname, year, month, day) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+=======
+            String query = "INSERT INTO alphamail.user (username, password, email, firstname, lastname) " + "VALUES (?, ?, ?, ?, ?)";
+>>>>>>> origin/master
             
             ps = connection.prepareStatement(query);
             ps.setString(1, newUser.getUsername());
@@ -73,14 +79,17 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
         
             PreparedStatement ps = null;
+<<<<<<< HEAD
             String query = "UPDATE CS3520.CS3520 SET "
+||||||| merged common ancestors
+            String query = "UPDATE cs3520.user SET "
+=======
+            String query = "UPDATE alphamail.user SET "
+>>>>>>> origin/master
                     + "password=?, "
                     + "email=?, "
                     + "firstname=?, "
                     + "lastname=?, "
-                    + "year=?, "
-                    + "month=?, "
-                    + "day=? "
                     + "WHERE username=?";
             
             ps = connection.prepareStatement(query);
@@ -105,7 +114,13 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
         
             PreparedStatement ps = null;
+<<<<<<< HEAD
             String query = "SELECT * FROM CS3520.CS3520 WHERE username = ?";
+||||||| merged common ancestors
+            String query = "SELECT * FROM cs3520.user WHERE username = ?";
+=======
+            String query = "SELECT * FROM alphamail.user WHERE username = ?";
+>>>>>>> origin/master
             ps = connection.prepareStatement(query);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
@@ -136,7 +151,13 @@ public class UserDB {
             Connection connection = MyDatabase.getConnection();
         
             PreparedStatement ps = null;
+<<<<<<< HEAD
             String query = "SELECT email FROM CS3520";
+||||||| merged common ancestors
+            String query = "SELECT email FROM cs3520.user";
+=======
+            String query = "SELECT email FROM alphamail.user";
+>>>>>>> origin/master
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
@@ -150,5 +171,70 @@ public class UserDB {
         }
         
         return emailList;
+    }
+    
+    public static boolean deleteUser(String email){
+        boolean status=false;
+        MyDatabase.InitiallizeConnection();
+        Connection conn = MyDatabase.getConnection();
+        try{
+            String prepStmt="DELETE from user "
+                    + "WHERE email=?";
+            PreparedStatement ps=conn.prepareStatement(prepStmt);
+            ps.setString(1, email);
+            ps.executeUpdate();
+            ps.close();
+            conn.close();
+            status=true;  
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }finally{
+            try{
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return status;
+    }
+    
+    public static List<User> getUsers(){
+        List<User> users=new ArrayList<User>();
+        User temp=null;
+        MyDatabase.InitiallizeConnection();
+        Connection conn = MyDatabase.getConnection();
+        try{
+            Statement stmt=conn.createStatement();
+            ResultSet rs=stmt.executeQuery("Select * from user");
+            while(rs.next()){
+                String firstName=rs.getString("firstName");
+                String lastName=rs.getString("lastName");
+                String username=rs.getString("username");
+                String email=rs.getString("email");
+                String password=rs.getString("password");
+                temp=new User(username, password, email, firstName, lastName);
+                users.add(temp);                
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }finally{
+            try{
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        return users;
     }
 }

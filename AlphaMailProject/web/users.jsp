@@ -1,7 +1,6 @@
-
 <%-- 
-    Document   : Admin
-    Created on : Aug 14, 2016, 3:53:17 PM
+    Document   : users
+    Created on : Aug 14, 2016, 4:18:10 PM
     Author     : Tracy
 --%>
 
@@ -81,12 +80,6 @@
     .col-md-4 marginTop a{
         text-decoration: none;
     }
-    h2{
-            font-family: sans-serif;
-            font-weight: bolder;
-            font-size: 25px;
-            color: #990000;
-    }
     </style>
 
 </head>
@@ -112,35 +105,60 @@
                     </div>
             </div>
         </nav>
-        <br><br><br><br><br>
+        <br><br><br>
        <div class="container contentContainer">
          <div class="row content">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
             </div>
-            <div class="col-sm-6">
-                <h2>Please sign in with your administrator username and password.</h2>
+            <div class="col-sm-8">
+                <h2>
+                    Below is the list of current users. 
+                </h2>
                 <br>
-                <p>${hint}</p>
-                <form role="form" action="AdminSignIn" method="post">
-                    <input type="hidden" name="action" value="adminlogin">
-                    <div class="form-group form-inline">
-                        <label for="text">Username:</label>
-                        <input type="text" name="username" class="form-control">
-                    </div>
-                    <div class="form-group form-inline">
-                        <label for="pwd">Password:</label>
-                        <input type="password" name="password" class="form-control" id="pwd">
-                    </div>
-                    <div class="form-group">
-                    <button type="submit" class="btn btn-default">Login</button>
-                    </div>
-                </form> 
+                <table class="table">
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="user" items="${allusers}" varStatus="status">
+                    <tr>
+                    <td>
+                        ${user.firstname}                      
+                    </td>                       
+                    <td>
+                        ${user.lastname}
+                    </td>
+                    <td>
+                        ${user.email}
+                    </td>
+                    <td>
+                        ${user.username}
+                    </td>
+                    <td>
+                        ${user.password}
+                    </td>
+                    <td>
+                        <form role="form" action="ManageUsers" method="post">
+                            <input type="hidden" name="action" value="deleteUser">
+                            <input type="hidden" name="email" value="${user.email}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                    </tr>
+                    </c:forEach>  
+                </tbody>
+            </table>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
             </div>
         </div>
        </div>
      </body>
 </html>
 <%@ include file="Footer.jsp" %>
->>>>>>> origin/master
